@@ -1,0 +1,29 @@
+@import '../index.less';
+
+//单选按钮
+.ant-radio-wrapper {
+  color: @textColor;
+
+  .ant-radio-disabled {
+    & {
+      opacity: 0.5;
+    }
+
+    +span {
+      color: @textDisableColor;
+    }
+  }
+
+  .ant-radio-inner {
+    & {
+      background: @text162b41Color;
+      border: 2px solid @primaryColor;
+    }
+
+    &::after {
+      top: 2px;
+      left: 2px;
+      background-color: @primaryColor;
+    }
+  }
+}

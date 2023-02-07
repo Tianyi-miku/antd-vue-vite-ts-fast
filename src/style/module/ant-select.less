@@ -1,0 +1,129 @@
+@import '../index.less';
+
+// 下拉框
+.ant-select {
+  // width: 240px!important;
+  width: 190px;
+
+  .anticon {
+    color: @textWhiteColor;
+  }
+
+  .rc-virtual-list {
+    border: 1px solid #63a4f2 !important;
+  }
+
+  .ant-select-selector {
+    height: auto;
+    min-height: 28px;
+    background: @backgroundDarkColor;
+    color: @textWhiteColor !important;
+    border-radius: 4px !important;
+    border-color: #55a8f6 !important;
+
+    .ant-select-selection-search {
+      line-height: 38px;
+    }
+
+    .ant-select-selection-placeholder {
+      line-height: 38px;
+    }
+
+    .ant-select-selection-item {
+      line-height: 38px;
+
+    }
+  }
+
+  .ant-select-selection__rendered {
+    line-height: 38px;
+  }
+
+  .ant-select-arrow {
+    color: @textColor;
+  }
+}
+
+.ant-select-clear {
+  border-radius: 6px !important;
+  background-color: @backgroundDarkBlueColor !important;
+
+  &:hover {
+    border-radius: 6px !important;
+  }
+}
+
+.ant-select-item {
+  color: @textWhiteColor;
+  background: @backgroundDarkColor;
+
+  &:hover {
+    background: @backgroundDarkBlueColor1;
+  }
+
+  &.ant-select-item-option-active {
+    background: @backgroundDarkBlueColor;
+  }
+
+  &.ant-select-item-option-selected {
+    color: @primaryColor;
+    background: @backgroundDarkBlueColor1;
+  }
+
+  &.ant-select-item-option-disabled {
+    color: @textDisableColor;
+
+    &:hover {
+      background: transparent !important;
+    }
+  }
+}
+
+:deep(.ant-select-dropdown) {
+  background: @backgroundDarkColor !important;
+  color: @textWhiteColor !important;
+
+  #rc_select_0_list {
+    background: @backgroundDarkColor;
+    color: @textWhiteColor !important;
+  }
+
+  .ant-select-item-option,
+  .ant-select-dropdown-menu-root,
+  .ant-select-dropdown-menu-vertical {
+    li:hover {
+      // 鼠标 hover 效果
+      background: @backgroundDarkBlueColor1;
+    }
+  }
+
+  .rc-virtual-list-holder-inner {
+    color: @textColor;
+  }
+}
+
+.ant-select-selection--multiple>ul>li,
+.ant-select-selection--multiple {
+
+  >ul>li,
+  .ant-select-selection__rendered>ul>li {
+    margin-top: 6px;
+  }
+
+  .ant-select-selection__choice {
+    background: @backgroundLightLinearColor;
+    color: @textColor;
+  }
+
+  .ant-select-selection__choice__remove {
+    color: @textColor;
+  }
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  height: 40px;
+}
+
+.ant-select-clear {
+  background-color: @backgroundDarkColor
+}

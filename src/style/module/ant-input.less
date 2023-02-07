@@ -1,0 +1,73 @@
+@import '../index.less';
+
+.has-error {
+  .ant-input {
+
+    &:hover,
+    &:focus,
+    &:not([disabled]):hover {
+      .common-border-col-act()
+    }
+
+    .common-border-col-act()
+  }
+}
+
+.ant-input {
+  height: 38px;
+  padding: 9px 12px 9px 12px;
+  border-radius: 4px;
+  color: @textColor;
+  background: @backgroundDarkColor;
+  .common-border-def();
+
+  &[disabled]:hover,
+  &[disabled] {
+    border-color: @backgroundLinearColor;
+  }
+}
+
+.ant-input-affix-wrapper {
+  background-color: #050b16 !important;
+  border-radius: 4px !important;
+
+  .ant-input-prefix,
+  .ant-input-suffix,
+  .ant-input-textarea-clear-icon {
+    color: @textLightColor;
+  }
+
+  .ant-input-suffix {
+    .ant-input-clear-icon:hover {
+      color: @textWhiteColor;
+    }
+  }
+
+  .ant-input-textarea-clear-icon {
+    &:hover {
+      color: @textWhiteColor;
+    }
+  }
+
+}
+
+
+/*input 自动填充的样式*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  // border: 1px solid black;
+  -webkit-text-fill-color: @textColor;
+  -webkit-box-shadow: 0 0 0 1000px @backgroundDarkColor inset;
+  transition: background-color 5000s ease-in-out 0s;
+  caret-color: @textWhiteColor; //光标颜色
+}
+
+.anticon.ant-input-clear-icon {
+  color: @primaryColor !important;
+}

@@ -1,0 +1,56 @@
+@import '../index.less';
+
+.ant-picker-range {
+  background: @backgroundDarkColor !important;
+  height: 40px;
+
+  .ant-picker-input>input {
+    color: @textWhiteColor;
+  }
+
+}
+
+// 时间选择
+.ant-picker {
+  border-color: @primaryColor;
+  border-radius: 4px;
+}
+
+.ant-picker-range .ant-picker-clear {
+  border-radius: 15px;
+  background: @backgroundDarkColor;
+}
+
+.ant-picker-panel-container .ant-picker-panels {
+  background: @backgroundDarkColor !important;
+  color: @textWhiteColor !important;
+
+  .ant-picker-cell .ant-picker-cell-inner {
+    color: @textWhiteColor;
+  }
+
+  .ant-picker-date-panel .ant-picker-content th {
+    color: @textWhiteColor;
+  }
+
+  .ant-picker-header-view {
+    color: @textWhiteColor;
+  }
+
+  .ant-picker-header>button {
+    color: @textWhiteColor;
+  }
+
+  .ant-picker-cell-in-view.ant-picker-cell-in-range::before {
+    background: @backgroundDarkColor;
+  }
+
+  .ant-picker-cell::before {
+    height: 0;
+  }
+}
+
+.ant-picker-cell:hover:not(.ant-picker-cell-in-view) .ant-picker-cell-inner,
+.ant-picker-cell:hover:not(.ant-picker-cell-selected):not(.ant-picker-cell-range-start):not(.ant-picker-cell-range-end):not(.ant-picker-cell-range-hover-start):not(.ant-picker-cell-range-hover-end) .ant-picker-cell-inner {
+  background: @primaryColor;
+}

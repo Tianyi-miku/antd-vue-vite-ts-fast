@@ -1,0 +1,64 @@
+@import '../index.less';
+
+.ant-tree {
+  background: none !important;
+  color: #fff !important;
+  font-size: 16px;
+
+  .ant-tree-switcher {
+    background: none !important;
+    margin-top: 4px;
+
+    .anticon {
+      color: @primaryColor;
+    }
+  }
+
+  .ant-tree-node-selected {
+    background: @primaryColor;
+  }
+
+  .ant-tree-node-content-wrapper:hover {
+    background: @backgHoverColor !important;
+  }
+
+  .ant-tree-node-selected:hover {
+    background: @primaryColor !important;
+  }
+
+  .ant-tree-indent-unit::before {
+    display: none;
+  }
+
+  // 线条
+  //   .ant-tree-switcher {
+  //    position: relative;
+
+  //    .ant-tree-switcher-line-icon {
+  //      position: relative;
+  //      top: 4px;
+  //    }
+
+  //    .ant-tree-switcher-line-icon::before {
+  //      content: '';
+  //      display: inline-block;
+  //      width: 0;
+  //      position: absolute;
+  //      left: 12px;
+  //      top: 18px;
+  //      height: 26px;
+  //      border-left: 1px dashed @textLightColor
+  //    }
+
+  //    .ant-tree-switcher-line-icon::after {
+  //      content: '';
+  //      display: inline-block;
+  //      width: 12px;
+  //      position: relative;
+  //      height: 0;
+  //      left: 8px;
+  //      top: 22px;
+  //      border-bottom: 1px dashed @textLightColor
+  //    }
+  //  }
+}

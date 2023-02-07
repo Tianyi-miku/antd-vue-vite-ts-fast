@@ -1,0 +1,210 @@
+@import '../index.less';
+
+@ant-notification-min-height: 76px;
+@ant-notification-border-radius: 6px;
+
+.com-text() {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.ant-notification {
+  z-index: 10001
+}
+
+.anticon.ant-notification-notice-icon-success {
+  color: @success-color !important
+}
+
+.anticon.ant-notification-notice-icon-error {
+  color: @error-color !important;
+}
+
+.anticon.ant-notification-notice-icon-warning {
+  color: @warning-color !important;
+}
+
+.ant-notification-notice {
+  padding: 0;
+  min-height: @ant-notification-min-height;
+  color: @textWhiteColor;
+
+  border-radius: @ant-notification-border-radius;
+  background: @primaryColor;
+
+  .ant-notification-notice-icon {
+    background: @backgroundDarkColor;
+  }
+
+  &.me-success {
+    svg {
+      color: @success-color !important;
+    }
+  }
+
+  &.me-error {
+    svg {
+      color: @error-color !important;
+    }
+  }
+
+  &.me-warning {
+    svg {
+      color: @warning-color !important;
+    }
+  }
+
+  .ant-notification-notice-content {
+    min-height: inherit;
+
+    .ant-notification-notice-with-icon {
+      min-height: inherit;
+    }
+
+    .ant-notification-notice-icon {
+      float: left;
+      margin: 0;
+      width: 53px;
+      margin-left: 4px;
+      height: calc(100% - 8px);
+      top: 4px;
+      border-bottom-left-radius: 6px;
+      border-top-left-radius: 6px;
+    }
+
+    .anticon {
+      // width: 100%;
+      // height: 100%;
+      // color: @textWhiteColor;
+
+      svg {
+        // background: @textWhiteColor;
+        border-radius: 50%;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        // color: @textWhiteColor;
+      }
+    }
+
+    .ant-notification-notice-message {
+      display: block;
+      margin: 4px 4px 0 57px;
+      padding: 15px 0 0px 23px;
+      background: @backgroundDarkColor !important;
+      color: @textColor !important;
+      font-size: 18px;
+      font-weight: 500;
+      border-top-right-radius: 6px;
+    }
+
+    .ant-notification-notice-description {
+      display: block;
+      padding: 2px 0 10px 23px;
+      margin: 0 4px 4PX 57px;
+      background: @backgroundDarkColor !important;
+      font-size: 14px;
+      border-bottom-right-radius: 6px;
+    }
+  }
+
+  .ant-notification-notice-close {
+    display: block;
+    color: @textWhiteColor;
+  }
+
+  //alert提示
+  &.alert {
+    & .ant-notification-notice-content {
+      .ant-notification-notice-icon {
+        & {
+          width: 100%;
+          height: 32px;
+          position: static;
+          display: block;
+          margin: 26px 0;
+        }
+
+        & .anticon {
+          width: 32px;
+          height: 100%;
+          display: block;
+          margin: 0 auto;
+          background: @textWhiteColor;
+          border-radius: 50%;
+
+          svg {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+      }
+
+      .ant-notification-notice-message {
+        .com-text();
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .ant-notification-notice-description {
+        .com-text();
+      }
+
+      .ant-notification-notice-btn {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        float: none;
+
+        & .ant-btn {
+          border: none !important;
+        }
+      }
+    }
+
+
+    &.alert-success {
+      svg {
+        color: @success-color;
+      }
+
+      .ant-btn {
+        background: @backgroundSuccessColor;
+      }
+    }
+
+    &.alert-error {
+      svg {
+        color: @error-color;
+      }
+
+      .ant-btn {
+        background: @backgroundErrorColor;
+      }
+    }
+
+    &.alert-warning {
+      svg {
+        color: @warning-color;
+      }
+
+      .ant-btn {
+        background: @backgroundWarnColor;
+      }
+    }
+  }
+}
+
+.ant-notification-alert {
+  position: absolute;
+  width: 248px;
+  height: 218px;
+  right: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0px !important;
+  margin: auto;
+}

@@ -1,0 +1,82 @@
+@import '../index.less';
+
+.ant-btn {
+  height: 38px;
+  line-height: 36px;
+  border-radius: @borderRadius;
+  padding: 0 10px;
+  color: @textColor !important;
+  border: @primaryBorder;
+  background: none !important;
+
+  &:hover {
+    color: @and-button-hover;
+    background: @backgroundLinearColor ;
+  }
+
+  &.ant-btn-primary {
+    background: @backgroundLightLinearColor !important;
+    color: @textColor;
+    border: @primaryBorder;
+
+
+    &:hover {
+      border-color: @and-button-hover !important;
+      background: linear-gradient(337.91deg, @and-button-hover-b -26.1%, @and-button-hover 93.43%) !important;
+    }
+  }
+
+  &.ant-btn-defalut {
+    color: @text162b41Color !important;
+
+    &:hover {
+      color: @and-button-hover;
+    }
+  }
+
+  &.ant-btn-text {
+    &:hover {
+      color: @and-button-hover;
+    }
+  }
+
+  &.ant-btn-link {
+    &:hover {
+      color: @and-button-hover;
+    }
+  }
+
+  &.ant-btn-dangerous {
+    &:hover {
+      color: @ant-button-dengerous-hover;
+    }
+  }
+
+  &.ant-btn-defalut {
+    color: @textColor;
+  }
+}
+
+.ant-btn .ant-btn-disabled,
+.ant-btn.disabled,
+.ant-btn[disabled],
+.ant-btn-disabled:hover,
+.ant-btn.disabled:hover,
+.ant-btn[disabled]:hover,
+.ant-btn-disabled:focus,
+.ant-btn.disabled:focus,
+.ant-btn[disabled]:focus,
+.ant-btn-disabled:active,
+.ant-btn.disabled:active,
+.ant-btn[disabled]:active,
+.ant-btn-disabled.active,
+.ant-btn.disabled.active,
+.ant-btn[disabled].active {
+  // background: @ant-btn-color-disable-b !important;
+  color: @ant-btn-color-disable;
+
+  &.ant-btn-primary {
+    background: @ant-btn-color-disable !important;
+    color: @textColor !important;
+  }
+}

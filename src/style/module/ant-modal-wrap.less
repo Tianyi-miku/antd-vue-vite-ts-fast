@@ -1,0 +1,134 @@
+@import '../index.less';
+
+.ant-modal-wrap {
+  .ant-modal-content {
+    // 背景图片
+    // background: url('~@/assets/images/control/technologyBg1.png') no-repeat center;
+    // background-size: 100% 100%;
+    // border: none;
+    // 渐变背景
+    border: @primaryBorder;
+    border-color: @primaryColor;
+    border-radius: @borderRadius;
+    background: @backgroundLinearColor;
+    color: @textColor;
+
+    .ant-modal-header {
+      background: none;
+      border: none;
+      padding: 20px 0 0;
+      text-align: center;
+
+      .ant-modal-title {
+        color: @textColor;
+        font-size: 22px;
+      }
+    }
+
+    .ant-modal-confirm-content {
+      color: @textColor;
+    }
+
+    .ant-modal-close {
+      color: @textWhiteColor;
+    }
+
+    .ant-modal-body {
+      padding: 30px 40px 10px;
+      border: none;
+      max-height: 70vh;
+      overflow: auto;
+    }
+
+    .ant-modal-footer {
+      padding: 10px 40px 30px 0;
+      border: none;
+
+      .ant-btn {
+        background: none;
+      }
+
+      .ant-btn-primary {
+        background: @backgroundLightLinearColor;
+      }
+    }
+
+    // 对话框
+    .ant-modal-confirm-body-wrapper {
+      .ant-modal-confirm-body {
+        .ant-modal-confirm-title {
+          color: @textColor;
+          font-size: 18px;
+          font-weight: bold;
+        }
+      }
+
+      .ant-modal-confirm-btns {
+        margin: 10px 0;
+
+        .ant-btn {
+          background: none;
+        }
+      }
+    }
+  }
+
+  &.modal-technology {
+    .ant-modal-content {
+      border: 15px solid transparent !important;
+      border-image: url("~@/assets/images/control/technologyBg.png") 30 30 stretch !important;
+      width: 625px !important;
+      height: 500px !important;
+
+      .ant-modal-body {
+        height: calc(100% - 164px);
+        overflow: auto;
+      }
+
+      .ant-modal-close {
+        display: none;
+      }
+
+      .ant-modal-header {
+        background: @backgroundDarkBlueColor1;
+        padding-top: 40px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+// 全屏弹窗
+.full-modal {
+  .ant-modal {
+    top: 0;
+    padding-bottom: 0;
+    max-width: 100%;
+
+    .ant-modal-header {
+      padding: 20px 0;
+    }
+
+    .ant-modal-content {
+      height: 100vh;
+    }
+
+    .ant-modal-body {
+      max-height: 85vh;
+      height: auto;
+      overflow: hidden;
+      height: 85vh;
+      padding: 0 30px;
+    }
+
+    .ant-modal-footer {
+      padding: 20px 30px;
+    }
+  }
+}
+
+.medialog-content {
+  .footer {
+    padding-right: 20px;
+  }
+}

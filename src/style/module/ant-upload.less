@@ -1,0 +1,71 @@
+@import '../index.less';
+
+/************* 文件上传 ***********************/
+// 上传按钮
+.ant-upload {
+
+  &.ant-upload-drag,
+  &.ant-upload-select-picture-card {
+    // 拖拽区域  图片上传区域
+    background-color: @backgroundDarkColor;
+
+    .ant-upload-text {
+      color: @textColor;
+    }
+
+    .ant-upload-hint {
+      color: @textDisableColor;
+    }
+
+    .anticon {
+      color: @primaryColor;
+    }
+  }
+
+  & .ant-btn {
+    //上传按钮
+    background-color: @backgroundDarkColor;
+    color: @textColor;
+
+    &.upload-file-btn {
+      display: flex;
+      width: 240px;
+      justify-content: space-between;
+      align-items: center;
+
+    }
+  }
+
+  &.ant-upload-disabled {
+    opacity: 0.8;
+  }
+}
+
+// 上传列表
+.ant-upload-list {
+  .ant-upload-list-item {
+    &.ant-upload-list-item-uploading {
+      // 上传中字体颜色修改
+      color: @textLightColor;
+
+      .anticon-loading {
+        color: @textLightColor;
+      }
+    }
+
+    &.ant-upload-list-item-done {
+      // 上传完成
+      color: @textLightColor;
+
+      .anticon {
+        color: @textLightColor;
+      }
+    }
+
+    &:hover {
+      .ant-upload-list-item-info {
+        background: @primaryColor !important;
+      }
+    }
+  }
+}

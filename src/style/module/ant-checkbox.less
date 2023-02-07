@@ -1,0 +1,31 @@
+@import '../index.less';
+
+// 复选框
+.ant-checkbox-wrapper {
+  &.ant-checkbox-wrapper-disabled {
+    opacity: 0.5;
+
+    .ant-checkbox-inner {
+      border-color: @primaryColor;
+    }
+
+  }
+
+  .ant-checkbox {
+    +span {
+      color: @textColor;
+    }
+
+    .ant-checkbox-inner {
+      background: @backgroundDarkColor;
+      border: 2px solid @primaryColor;
+      border-radius: 2px;
+    }
+
+    &.ant-checkbox-checked {
+      .ant-checkbox-inner::after {
+        border-color: @textColor;
+      }
+    }
+  }
+}
