@@ -89,7 +89,7 @@ module.exports = {
       'id': 10,
       'meta': {
         'icon': 'form',
-        'title': '表单页'
+        'title': '可视化页'
       },
       'redirect': '/form/base-form',
       'component': 'PageView'
@@ -99,7 +99,7 @@ module.exports = {
       'parentId': 10,
       'id': 6,
       'meta': {
-        'title': '基础表单'
+        'title': '瀑布图'
       },
       'component': 'BasicForm'
     },

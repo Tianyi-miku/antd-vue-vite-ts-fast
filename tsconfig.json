@@ -12,6 +12,8 @@
     "dist"
   ],
   "compilerOptions": {
+    "allowJs": true,
+    "noEmit": true,
     "jsx": "preserve",
     "target": "esnext",
     "module": "esnext",
