@@ -8,6 +8,7 @@
       <a-button @click="ripple">扫描</a-button>
 
       <a-button @click="showModel">模型车</a-button>
+      <a-button @click="clean">清除</a-button>
     </div>
   </div>
 </template>
@@ -26,6 +27,13 @@ let stages = {
 onMounted(() => {
   loadView()  //初始化地球
 })
+
+function clean() {
+  removeStage(viewer)
+  viewer.entities.removeAll()
+  viewer.dataSources.removeAll()
+}
+
 function setviewerRain() {
   if (stages.weather) {
     removeStage(viewer)

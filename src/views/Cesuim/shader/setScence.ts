@@ -2,7 +2,9 @@ import * as Cesium from "cesium";
 
 let postProcessStage
 export function removeStage(_viewer: Cesium.Viewer, _name?: string) {
-  _viewer.scene.postProcessStages.remove(postProcessStage)
+  if (postProcessStage) {
+    _viewer.scene.postProcessStages.remove(postProcessStage)
+  }
 }
 
 //雨天特效
