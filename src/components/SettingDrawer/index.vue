@@ -1,12 +1,6 @@
 <template>
   <div class="setting-drawer">
-    <a-drawer
-      width="320"
-      placement="right"
-      @close="onClose"
-      :closable="isMobile"
-      :visible="state.app.showSettings"
-    >
+    <a-drawer width="320" placement="right" @close="onClose" :closable="isMobile" :visible="state.app.showSettings">
       <div class="setting-drawer-index-content">
         <!-- 整体风格设置 -->
         <GlobalStyle />
@@ -27,17 +21,6 @@
             {{ $t('settingDrawer.copySettings') }}
           </template>
         </a-button>
-        <a-alert type="warning" :style="{ marginTop: '24px' }" v-if="isDev">
-          <template #message>
-            <span>
-              {{ $t('settingDrawer.words') }}
-              <a
-                href="https://github.com/bailihuiyue/ant-design-pro-vue3/blob/main/src/config/defaultSettings.ts"
-                target="_blank"
-              >src/config/defaultSettings.ts</a>
-            </span>
-          </template>
-        </a-alert>
       </div>
 
       <template #handle>
@@ -121,6 +104,7 @@ export default defineComponent({
 
 <style lang="less" scoped>
 @import '../../style/index.less';
+
 .setting-drawer-index-content {
   ::v-deep(.setting-drawer-index-blockChecbox) {
     display: flex;

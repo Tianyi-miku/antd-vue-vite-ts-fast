@@ -1,27 +1,15 @@
 <template>
   <div class="main">
     <a-form id="formLogin" class="user-layout-login" @submit="handleSubmit" :model="formRef">
-      <a-tabs
-        :activeKey="customActiveKey"
-        :tabBarStyle="{ textAlign: 'center', borderBottom: 'unset' }"
-        @change="handleTabClick"
-      >
+      <a-tabs :activeKey="customActiveKey" :tabBarStyle="{ textAlign: 'center', borderBottom: 'unset' }"
+        @change="handleTabClick">
         <!-- 账户密码登录 -->
         <a-tab-pane key="tab1" :tab="$t('user.login.tab-login-credentials')">
-          <a-alert
-            v-if="isLoginError"
-            type="error"
-            showIcon
-            style="margin-bottom: 24px"
-            :message="$t('user.login.message-invalid-credentials')"
-          />
+          <a-alert v-if="isLoginError" type="error" showIcon style="margin-bottom: 24px"
+            :message="$t('user.login.message-invalid-credentials')" />
           <a-form-item v-bind="validateInfos.username">
-            <a-input
-              size="large"
-              type="text"
-              :placeholder="$t('user.login.username.placeholder')"
-              v-model:value="formRef.username"
-            >
+            <a-input size="large" type="text" :placeholder="$t('user.login.username.placeholder')"
+              v-model:value="formRef.username">
               <template #prefix>
                 <UserOutlined :style="{ color: 'rgba(0,0,0,.25)' }" />
               </template>
@@ -29,11 +17,8 @@
           </a-form-item>
 
           <a-form-item v-bind="validateInfos.password">
-            <a-input-password
-              size="large"
-              :placeholder="$t('user.login.password.placeholder')"
-              v-model:value="formRef.password"
-            >
+            <a-input-password size="large" :placeholder="$t('user.login.password.placeholder')"
+              v-model:value="formRef.password">
               <template #prefix>
                 <LockOutlined :style="{ color: 'rgba(0,0,0,.25)' }" />
               </template>
@@ -43,12 +28,8 @@
         <!-- 手机号登录 -->
         <a-tab-pane key="tab2" :tab="$t('user.login.tab-login-mobile')">
           <a-form-item v-bind="validateInfos.mobile">
-            <a-input
-              size="large"
-              type="text"
-              :placeholder="$t('user.login.mobile.placeholder')"
-              v-model:value="formRef.mobile"
-            >
+            <a-input size="large" type="text" :placeholder="$t('user.login.mobile.placeholder')"
+              v-model:value="formRef.mobile">
               <MobileOutlined :style="{ color: 'rgba(0,0,0,.25)' }" />
             </a-input>
           </a-form-item>
@@ -56,26 +37,17 @@
           <a-row :gutter="16">
             <a-col class="gutter-row" :span="16">
               <a-form-item v-bind="validateInfos.captcha">
-                <a-input
-                  size="large"
-                  type="text"
-                  :placeholder="$t('user.login.mobile.verification-code.placeholder')"
-                  v-model:value="formRef.captcha"
-                >
+                <a-input size="large" type="text" :placeholder="$t('user.login.mobile.verification-code.placeholder')"
+                  v-model:value="formRef.captcha">
                   <MailOutlined :style="{ color: 'rgba(0,0,0,.25)' }" />
                 </a-input>
               </a-form-item>
             </a-col>
             <a-col class="gutter-row" :span="8">
-              <a-button
-                class="getCaptcha"
-                tabindex="-1"
-                :disabled="state.smsSendBtn"
-                @click.stop.prevent="getCaptcha"
-              >
+              <a-button class="getCaptcha" tabindex="-1" :disabled="state.smsSendBtn" @click.stop.prevent="getCaptcha">
                 {{
                 (!state.smsSendBtn && $t("user.register.get-verification-code")) ||
-                state.time + " s"
+  state.time + " s"
                 }}
               </a-button>
             </a-col>
@@ -86,25 +58,17 @@
       <a-form-item v-bind="validateInfos.rememberMe">
         <a-checkbox v-model:checked="formRef.rememberMe" style="float:left">
           {{
-          $t("user.login.remember-me")
+            $t("user.login.remember-me")
           }}
         </a-checkbox>
-        <router-link
-          :to="{ name: 'recover', params: { user: 'aaa' } }"
-          class="forge-password"
-          style="float: right"
-        >{{ $t("user.login.forgot-password") }}</router-link>
+        <router-link :to="{ name: 'recover', params: { user: 'aaa' } }" class="forge-password" style="float: right">{{
+          $t("user.login.forgot-password")
+        }}</router-link>
       </a-form-item>
 
       <a-form-item style="margin-top: 24px">
-        <a-button
-          size="large"
-          type="primary"
-          htmlType="submit"
-          class="login-button"
-          :loading="state.loginBtn"
-          :disabled="state.loginBtn"
-        >{{ $t("user.login.login") }}</a-button>
+        <a-button size="large" type="primary" htmlType="submit" class="login-button" :loading="state.loginBtn"
+          :disabled="state.loginBtn">{{ $t("user.login.login") }}</a-button>
       </a-form-item>
 
       <div class="user-login-other">
@@ -120,7 +84,7 @@
         </a>
         <router-link class="register" :to="{ name: 'register' }">
           {{
-          $t("user.login.signup")
+  $t("user.login.signup")
           }}
         </router-link>
       </div>
@@ -157,6 +121,8 @@ import { FormState } from './types'
 import config from '@/config/defaultSettings'
 import generateAsyncRoutes from '@/router/generateAsyncRoutes'
 import { useGetCaptcha } from './helper'
+import { loginJson } from "../../router/user";
+export const isDev = import.meta.env.DEV
 
 export default defineComponent({
   components: {
@@ -251,27 +217,35 @@ export default defineComponent({
 
       validate(validateFieldsKey)
         .then(async () => {
-          formRef.password = encryptByMd5(formRef.password)
-          const res = await api.userLogin(formRef)
-          if (res) {
-            // mock用,可删
-            if (res.code === 403) {
+          if (isDev) {
+            formRef.password = encryptByMd5(formRef.password)
+            if (config.useAsyncRouter) {
+              generateAsyncRoutes(router, [loginJson])
+            }
+            loginSuccess(loginJson, router)
+          }
+          else {
+            const res = await api.userLogin(formRef)
+            if (res) {
+              // mock用,可删
+              if (res.code === 403) {
+                isLoginError.value = true
+                formRef.password = ''
+                state.loginBtn = false
+                return
+              }
+              if (config.useAsyncRouter) {
+                generateAsyncRoutes(router, res.menu)
+              }
+              loginSuccess(res, router)
+              isLoginError.value = false
+            } else {
+              requestFailed(res)
               isLoginError.value = true
               formRef.password = ''
-              state.loginBtn = false
-              return
             }
-            if (config.useAsyncRouter) {
-              generateAsyncRoutes(router, res.menu)
-            }
-            loginSuccess(res, router)
-            isLoginError.value = false
-          } else {
-            requestFailed(res)
-            isLoginError.value = true
-            formRef.password = ''
+            state.loginBtn = false
           }
-          state.loginBtn = false
         })
         .catch((e) => {
           state.loginBtn = false

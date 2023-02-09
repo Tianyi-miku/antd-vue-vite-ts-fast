@@ -109,4 +109,4 @@ export const getWeek = (week: number, useZhou) => {
 
 const sitUrl = 'xxxxx'
 export const isDev = import.meta.env.DEV
-export const baseURL = isDev ? '/api/' : '生产地址'
+export const baseURL = isDev ? '/api/' : '/api/'
