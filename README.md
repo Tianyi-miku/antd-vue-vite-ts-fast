@@ -5,26 +5,6 @@ An out-of-box UI solution for enterprise applications as a Vue boilerplate. base
 
 基于 [Vite2 Vue3 Ant-Design-of-Vue2 TS](https://github.com/bailihuiyue/ant-design-pro-vue3) 实现的 [Ant Design Pro Vue](https://pro.antdv.com/docs/router-and-nav)
 
-码云地址: https://gitee.com/Onces/ant-design-pro-vue3
-
-预览图
-----
-#### 首页
-![dashboard](https://gitee.com/Onces/images/raw/master/ant-pro-vue3/6.png)
-个人中心
-![dashboard](https://gitee.com/Onces/images/raw/master/ant-pro-vue3/1.png)
-
-#### 夜间模式
-![dashboard](https://gitee.com/Onces/images/raw/master/ant-pro-vue3/2.png)
-
-#### 锁屏界面
-![dashboard](https://gitee.com/Onces/images/raw/master/ant-pro-vue3/7.png)
-
-可点击右下角锁头按钮进行解锁
-
-#### 手机预览(最低支持iphone4)
-<img src="https://gitee.com/Onces/images/raw/master/ant-pro-vue3/3.png"  width=250 /><img src="https://gitee.com/Onces/images/raw/master/ant-pro-vue3/4.png"  width=250/><img src="https://gitee.com/Onces/images/raw/master/ant-pro-vue3/5.png"  width=250 />
-
 项目下载和运行
 ----
 
@@ -167,6 +147,3 @@ yarn build
 1. 使用reactiveState部分代替vuex
 2. 详尽的文档
 3. antv最新版(3.2.14)已经可以支持通过css变量进行动态主题更换,该项目暂未使用该特性实现
-## 浏览器兼容
-
-Edge Chrome 等现代浏览器,目前只测试过Chrome,没有Mac所以Safari没有测试

@@ -32,7 +32,7 @@ module.exports = {
       'id': 1,
       'meta': {
         'icon': 'dashboard',
-        'title': '仪表盘',
+        'title': '3d仪表盘',
         'show': true
       },
       'component': 'RouteView',
