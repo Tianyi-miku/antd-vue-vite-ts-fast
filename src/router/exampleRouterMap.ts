@@ -48,19 +48,19 @@ export const example: Router = {
         {
           path: '/form/base-form',
           name: 'BaseForm',
-          component: () => import('@/views/Three/index.vue'),
+          component: () => import('@/views/Canvans/index.vue'),
           meta: { title: 'menu.form.basic-form', keepAlive: true }
         },
         {
           path: '/form/step-form',
           name: 'StepForm',
-          component: () => import('@/views/Antpro/index.vue'),
+          component: () => import('@/views/Lightningchart/index.vue'),
           meta: { title: 'menu.form.step-form.title', keepAlive: true }
         },
         {
           path: '/form/advanced-form',
           name: 'AdvanceForm',
-          component: () => import('@/views/Home.vue'),
+          component: () => import('@/views/D3js/index.vue'),
           meta: { title: 'menu.form.advanced-form', keepAlive: true }
         }
       ]

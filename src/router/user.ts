@@ -79,7 +79,7 @@ export const loginJson = {
       'id': 10,
       'meta': {
         'icon': 'form',
-        'title': '可视化页'
+        'title': 'Lightningchart'
       },
       'redirect': '/form/base-form',
       'component': 'PageView'

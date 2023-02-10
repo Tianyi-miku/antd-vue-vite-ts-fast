@@ -1,5 +1,5 @@
 <template>
-  <section class="Canvans">
+  <section class="Lightningchart">
 
   </section>
 </template>
@@ -11,7 +11,7 @@ import * as api from './service'
 </script>
 
 <style lang="less" scoped>
-.Canvans{
+.Lightningchart{
 
 }
 </style>
