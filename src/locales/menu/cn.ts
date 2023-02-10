@@ -5,7 +5,7 @@ export default {
   'dashboard.analysis': '分析页',
   'dashboard.cesuim': 'cesuim主页',
   'dashboard.workplace': '工作台',
-  'form.title': 'Lightningchart',
+  'form.title': '可视化',
   'form.basic-form': '瀑布图',
   'form.step-form.title': 'Lightningchart',
   'form.step-form.info': '分步表单（填写转账信息）',

@@ -121,7 +121,7 @@ import { FormState } from './types'
 import config from '@/config/defaultSettings'
 import generateAsyncRoutes from '@/router/generateAsyncRoutes'
 import { useGetCaptcha } from './helper'
-import { loginJson } from "../../router/user";
+import { loginJson } from "../../../mock/user";
 export const isDev = import.meta.env.DEV
 
 export default defineComponent({

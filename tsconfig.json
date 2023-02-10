@@ -5,7 +5,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "types/**/*.d.ts",
-    "types/**/*.ts",
+    "types/**/*.ts", "mock/user.ts", "mock/user.ts",
   ],
   "exclude": [
     "node_modules",
