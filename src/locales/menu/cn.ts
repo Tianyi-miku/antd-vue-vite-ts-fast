@@ -13,7 +13,7 @@ export default {
   'form.step-form.result': '分步表单（完成）',
   'form.advanced-form': 'D3js',
   'list.title': '列表页',
-  'list.table-list': '查询表格',
+  'list.table-list': '动态表单',
   'list.basic-list': '标准列表',
   'list.card-list': '卡片列表',
   'list.search-list.title': '搜索列表',

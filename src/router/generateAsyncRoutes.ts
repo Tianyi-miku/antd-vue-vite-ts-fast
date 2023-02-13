@@ -71,6 +71,7 @@ export const menuToRouter = (routerMap, parent?) => {
       // component: (() => import(`@/views/${item.component}`)),
       // meta: 页面标题, 菜单图标, 页面权限(供指令权限用，可去掉)
       meta: {
+        // @ts-ignore
         title: i18n.global.t(title),
         icon: icon || undefined,
         // PageView用的,控制PageHeader的,暂时没用上

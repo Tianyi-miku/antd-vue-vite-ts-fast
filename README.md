@@ -117,21 +117,6 @@ yarn build
 - 输入create-module-be 用于前台页面一键生成模板所调用的后端接口
 - dev-ui 同时启动项目和模板后端,在开发球中输入想要创建的组件/页面名称,刷新页面(vite热更新自动)即表示创建成功
 
-其他说明
-----
-
-- 项目为了保持了ant vue pro样式一致,部分代码引用自[ant vue pro](https://2x.antdv.com/components/overview-cn/),如global.less,部分插件和原理借鉴[vben](https://vvbin.cn/next/),感谢两位大大
-
-- 当前 <script setup lang="ts"></script>有bug,会导致.ts文件无法引入,报错 The requested module '/src/views/user/ty.ts' does not provide an export named 'FormState'
-
-- 文档里有一些注释,搭配vscode插件better-comments食用,风味更佳:
-  注释TODO: 待完成
-  bug:todo: bug
-  info:todo: 发现的一些情况
-  warn:todo: 可能有bug
-  ques:todo: 疑问
-  只有大写的'TODO'才表示未完成的功能,小写的todo只是为了方便搜索而已
-
 ## 已完成
 1. 注册登录vue3 语法
 2. 自动生成国际化(多层级文件夹使用.连接,比如tools.UserMenu)
@@ -147,3 +132,8 @@ yarn build
 1. 使用reactiveState部分代替vuex
 2. 详尽的文档
 3. antv最新版(3.2.14)已经可以支持通过css变量进行动态主题更换,该项目暂未使用该特性实现
+
+
+## 分支
+1. mini分支中只有基础框架
+2. master分支中整合项目中运用过的技术，以便下次查询。

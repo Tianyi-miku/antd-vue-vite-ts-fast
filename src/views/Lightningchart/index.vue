@@ -5,11 +5,10 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from 'vue'
+import { onMounted, onBeforeUnmount } from 'vue'
 import audio2ch from "../../../mock/audio2ch.json";
 // import * as api from './service'
-import * as lcjs from '@arction/lcjs'
-const { lightningChart, LUT, ColorHSV, PalettedFill, emptyLine, AxisScrollStrategies, AxisTickStrategies, regularColorSteps, Themes } = lcjs
+import { lightningChart, LUT, PalettedFill, emptyLine, AxisScrollStrategies, AxisTickStrategies, regularColorSteps, Themes } from '@arction/lcjs'
 
 const historyMs = 27 * 1000
 // Sampling rate as samples per second.
@@ -18,12 +17,13 @@ const sampleIntervalMs = 1000 / sampleRateHz
 onMounted(() => {
   setChart()
 })
+let dashboard
 
 function setChart() {
 
 
   // Create empty dashboard and charts.
-  const dashboard = lightningChart()
+  dashboard = lightningChart()
     .Dashboard({
       numberOfColumns: 2,
       numberOfRows: 2,
@@ -32,8 +32,6 @@ function setChart() {
     })
     .setRowHeight(0, 1)
     .setRowHeight(1, 2)
-
-  let labelLoading = dashboard.addUIElement().setText('Loading example data ...') || undefined
 
   // Define value -> color lookup table.
   const theme = dashboard.getTheme()
@@ -46,13 +44,17 @@ function setChart() {
   const rowStep = 40
   const intensityValueToDb = (value) => -100 + (value / 255) * (-30 - -100)
 
-  let data = audio2ch
-
+  const data = audio2ch
   let channelList = [
     {
       name: 'Channel 1',
       data: data.ch1,
       columnIndex: 0,
+    },
+    {
+      name: 'Channel 2',
+      data: data.ch2,
+      columnIndex: 1,
     },
   ]
 
@@ -78,17 +80,17 @@ function setChart() {
       })
       .setTitle(`${channel.name} | 3D audio spectrogram`)
 
-    // chart3D
-    //   .getDefaultAxisX()
-    //   .setTickStrategy(AxisTickStrategies.Time)
-    //   .setScrollStrategy(AxisScrollStrategies.progressive)
-    //   .setInterval({ start: -historyMs, end: 0, stopAxisAfter: false })
-    // chart3D
-    //   .getDefaultAxisY()
-    //   .setTitle('Intensity (dB)')
-    //   .setTickStrategy(AxisTickStrategies.Numeric, (ticks) =>
-    //     ticks.setFormattingFunction((y) => intensityValueToDb(y).toFixed(0)),
-    //   )
+    chart3D
+      .getDefaultAxisX()
+      .setTickStrategy(AxisTickStrategies.Time)
+      .setScrollStrategy(AxisScrollStrategies.progressive)
+      .setInterval({ start: -historyMs, end: 0, stopAxisAfter: false })
+    chart3D
+      .getDefaultAxisY()
+      .setTitle('Intensity (dB)')
+      .setTickStrategy(AxisTickStrategies.Numeric, (ticks) =>
+        ticks.setFormattingFunction((y) => intensityValueToDb(y).toFixed(0)),
+      )
     chart3D.getDefaultAxisZ().setTitle('Frequency (Hz)')
 
     const heatmapSeries2D = chart2D
@@ -129,9 +131,12 @@ function setChart() {
         for (let iDp = 0; iDp < newDataPointsCount; iDp++) {
           const iData = (pushedDataCount + iDp) % channel.data.length
           const sample = channel.data[iData]
+          // @ts-ignore
           newDataPoints.push(sample)
         }
+        // @ts-ignore
         channel.heatmapSeries2D.addIntensityValues(newDataPoints)
+        // @ts-ignore
         channel.surfaceSeries3D.addValues({ yValues: newDataPoints })
       })
       pushedDataCount += newDataPointsCount
@@ -139,9 +144,11 @@ function setChart() {
     requestAnimationFrame(streamData)
   }
   streamData()
-
 }
 
+onBeforeUnmount(() => {
+  dashboard.dispose()
+})
 </script>
 
 <style lang="less" scoped>

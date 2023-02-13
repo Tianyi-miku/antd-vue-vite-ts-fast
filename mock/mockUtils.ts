@@ -141,7 +141,7 @@ module.exports = {
       'id': 10011,
       'path': '/list/table-list/:pageNo([1-9]\\d*)?',
       'meta': {
-        'title': '查询表格',
+        'title': '动态表单',
         'show': true
       },
       'component': 'TableList'

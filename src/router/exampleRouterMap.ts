@@ -55,7 +55,7 @@ export const example: Router = {
           path: '/form/step-form',
           name: 'StepForm',
           component: () => import('@/views/Lightningchart/index.vue'),
-          meta: { title: 'menu.form.step-form.title', keepAlive: true }
+          meta: { title: 'menu.form.step-form.title', keepAlive: false }
         },
         {
           path: '/form/advanced-form',
@@ -70,13 +70,13 @@ export const example: Router = {
       name: 'list',
       component: RouteView,
       redirect: '/list/table-list',
-      meta: { title: 'menu.list.title', icon: 'bx-analyse', permission: ['table'] },
+      meta: { title: 'menu.list.title', icon: 'bx-analyse', permission: ['table', 'admin'] },
       children: [
         {
           path: '/list/table-list/:pageNo([1-9]\\d*)?',
           name: 'TableListWrapper',
           hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
-          component: () => import('@/views/Home.vue'),
+          component: () => import('@/views/DynamicFrom/index.vue'),
           meta: { title: 'menu.list.table-list', keepAlive: true }
         },
         {

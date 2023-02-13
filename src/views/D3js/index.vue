@@ -17,7 +17,6 @@ function addline() {
     .attr('width', 1000 + 'px')
     .attr('height', 500 + 'px');
 
-
 }
 </script>
 

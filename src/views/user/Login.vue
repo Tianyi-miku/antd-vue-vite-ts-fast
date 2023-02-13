@@ -121,8 +121,6 @@ import { FormState } from './types'
 import config from '@/config/defaultSettings'
 import generateAsyncRoutes from '@/router/generateAsyncRoutes'
 import { useGetCaptcha } from './helper'
-import { loginJson } from "../../../mock/user";
-export const isDev = import.meta.env.DEV
 
 export default defineComponent({
   components: {
@@ -217,35 +215,27 @@ export default defineComponent({
 
       validate(validateFieldsKey)
         .then(async () => {
-          if (isDev) {
-            formRef.password = encryptByMd5(formRef.password)
-            if (config.useAsyncRouter) {
-              generateAsyncRoutes(router, [loginJson])
-            }
-            loginSuccess(loginJson, router)
-          }
-          else {
-            const res = await api.userLogin(formRef)
-            if (res) {
-              // mock用,可删
-              if (res.code === 403) {
-                isLoginError.value = true
-                formRef.password = ''
-                state.loginBtn = false
-                return
-              }
-              if (config.useAsyncRouter) {
-                generateAsyncRoutes(router, res.menu)
-              }
-              loginSuccess(res, router)
-              isLoginError.value = false
-            } else {
-              requestFailed(res)
+          formRef.password = encryptByMd5(formRef.password)
+          const res = await api.userLogin(formRef)
+          if (res) {
+            // mock用,可删
+            if (res.code === 403) {
               isLoginError.value = true
               formRef.password = ''
+              state.loginBtn = false
+              return
             }
-            state.loginBtn = false
+            if (config.useAsyncRouter) {
+              generateAsyncRoutes(router, res.menu)
+            }
+            loginSuccess(res, router)
+            isLoginError.value = false
+          } else {
+            requestFailed(res)
+            isLoginError.value = true
+            formRef.password = ''
           }
+          state.loginBtn = false
         })
         .catch((e) => {
           state.loginBtn = false
