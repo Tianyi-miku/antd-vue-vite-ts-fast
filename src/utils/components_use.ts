@@ -3,3 +3,6 @@
 import "ant-design-vue/lib/notification/style/index.css";
 import "ant-design-vue/lib/message/style/index.css";
 import "ant-design-vue/lib/modal/style/index.css";
+
+//插件使用的element-ui，懒得修改了，需要改的自行修改,组件中的警告也是因为vue2组件不兼容，项目中遇到之后建议根据执行需求修改
+import 'element-plus/dist/index.css'

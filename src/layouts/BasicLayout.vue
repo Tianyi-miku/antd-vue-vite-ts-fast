@@ -18,7 +18,7 @@
       <!-- layout content -->
       <a-layout-content :style="{
         height: '100%',
-        margin: '24px 24px 0',
+        margin: '24px 24px 6px',
         paddingTop: fixedHeader ? '64px' : '0',
       }">
         <multi-tab v-if="multiTab"></multi-tab>

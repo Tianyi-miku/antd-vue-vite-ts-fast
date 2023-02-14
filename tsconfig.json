@@ -5,7 +5,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "types/**/*.d.ts",
-    "types/**/*.ts", "mock/user.ts", "mock/user.ts",
+    "types/**/*.ts", "mock/user.ts", "mock/user.ts", "src/views/Process/data.json",
   ],
   "exclude": [
     "node_modules",

@@ -2,6 +2,7 @@ import { UserConfig, ConfigEnv } from 'vite';
 import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite';
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import path from 'path';
 import legacy from '@vitejs/plugin-legacy'
@@ -25,6 +26,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       port: 8000
     },
     build: {
+      minify: 'terser',
       // 清除console和debugger
       terserOptions: {
         compress: {
@@ -56,7 +58,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       vueJsx(),
       Components({
         dts: true,
-        resolvers: [AntDesignVueResolver()],
+        resolvers: [AntDesignVueResolver(), ElementPlusResolver({ importStyle: true })],
         include: [/\.vue$/, /\.tsx$/],
       }),
       vite2Ext({

@@ -5,51 +5,8 @@
 <script lang="ts" setup>
 import * as d3 from 'd3';
 import { onMounted } from 'vue';
-// const data = [99, 71, 78, 25, 36, 92]
-// let line = ''
-
-// function getData(n) {
-//   let data: number[] = []
-//   for (let index = 0; index < n; index++) {
-//     data.push(Math.floor(Math.random() * 90 + 1))
-//   }
-//   return data
-// }
-
-// onMounted(() => {
-//   calculatePath()
-
-// })
-
-
-// function getScales() {
-//   const x = d3.scaleTime().range([0, 430]);
-//   const y = d3.scaleLinear().range([210, 0]);
-//   d3.axisLeft().scale(x);
-//   d3.axisBottom().scale(y);
-//   x.domain(d3.extent(data, (d, i) => i));
-//   y.domain([0, d3.max(data, d => d)]);
-//   return { x, y };
-// }
-
-
-// function calculatePath() {
-//   const scale = getScales();
-//   const path = d3.line()
-//     .x((d, i) => scale.x(i))
-//     .y(d => scale.y(d))
-//   const data1 = getData(500000)
-//   line = path(data1);
-
-// }
 onMounted(() => {
   const aapl = [
-    // { date: '2007-04-23', close: 93.24 },
-    // { date: '2007-04-24', close: 95.35 },
-    // { date: '2007-04-25', close: 98.84 },
-    // { date: '2007-04-26', close: 99.92 },
-    // { date: '2007-04-29', close: 99.8 },
-    // { date: '2007-05-01', close: 99.47 }
     { date: 10, close: 93 },
     { date: 20, close: 92 },
     { date: 30, close: 98 },

@@ -82,13 +82,13 @@ export const example: Router = {
         {
           path: '/list/basic-list',
           name: 'BasicList',
-          component: () => import('@/views/Home.vue'),
+          component: () => import('@/views/Process/index.vue'),
           meta: { title: 'menu.list.basic-list', keepAlive: true }
         },
         {
           path: '/list/card',
           name: 'CardList',
-          component: () => import('@/views/Home.vue'),
+          component: () => import('@/views/Js/index.vue'),
           meta: { title: 'menu.list.card-list', keepAlive: true }
         },
         {

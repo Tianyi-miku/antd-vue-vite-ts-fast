@@ -129,7 +129,7 @@ module.exports = {
       'id': 10010,
       'meta': {
         'icon': 'table',
-        'title': '列表页',
+        'title': '工作流',
         'show': true
       },
       'redirect': '/list/table-list',
@@ -151,7 +151,7 @@ module.exports = {
       'parentId': 10010,
       'id': 10012,
       'meta': {
-        'title': '标准列表',
+        'title': '流程图',
         'show': true
       },
       'component': 'StandardList'

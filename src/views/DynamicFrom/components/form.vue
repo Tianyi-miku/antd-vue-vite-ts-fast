@@ -1,5 +1,6 @@
 <template>
-  <a-form class="form" ref="formRef" :model="state.BindFrom" v-if="formState.intoFrom.length > 0">
+  <a-form class="form" ref="formRef" :layout="props.layout" :model="state.BindFrom"
+    v-if="formState.intoFrom.length > 0">
     <a-form-item v-for="item in formState.intoFrom" :key="item.id" :label="item?.label"
       :rules="selectRules(item.required, item.message, item.type) || []" :name="item.key">
       <!-- 输入框，下拉框 -->
@@ -56,6 +57,11 @@ const props = defineProps({
     type: Array,
     default: []
   },
+  //布局方式
+  layout: {
+    type: String,
+    default: ''
+  }
 });
 
 const state = reactive({
@@ -96,6 +102,7 @@ watch(
     let data = {}
     if (val.length > 0) {
       val.forEach((item: any) => {
+        //插槽不解析
         if (item.type != 'slot') {
           data[item.key] = item.value
         }
@@ -108,7 +115,5 @@ watch(
 );
 </script>
 <style lang="less">
-.form {
-  height: 100%;
-}
+
 </style>
