@@ -4,6 +4,7 @@ export default {
   'dashboard.title': '3d仪表盘',
   'dashboard.analysis': '分析页',
   'dashboard.cesuim': 'cesuim主页',
+  'dashboard.three': 'three',
   'dashboard.workplace': '工作台',
   'form.title': '可视化',
   'form.basic-form': '瀑布图',

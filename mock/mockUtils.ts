@@ -49,16 +49,15 @@ module.exports = {
       'component': 'Workplace'
     },
     {
-      'name': 'monitor',
-      'path': 'monitor',
+      'name': 'three',
       'parentId': 1,
       'id': 3,
       'meta': {
-        'title': '监控页（外部）',
-        'show': true,
-        'target': '',
-        'blank': true
-      }
+        'title': 'three',
+        'show': true
+      },
+      'component': 'Three',
+      'path': '/dashboard/three'
     },
     {
       'name': 'Analysis',

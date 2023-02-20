@@ -1,43 +1,87 @@
 <template>
-  <section class="Js">
-    1
-  </section>
+  <div>
+    <a-button @click="debounce(1000, isdebounce, '防抖')">debounce</a-button>
+
+    <a-button @click="throttle(1000, isdebounce, '节流')">throttle</a-button>
+
+  </div>
 </template>
 
 <script lang="ts" setup>
+import cache from '@antv/util/lib/cache';
+import { message } from 'ant-design-vue';
+import { rejects } from 'assert';
+import { resolve } from 'path';
 import { ref, reactive, onMounted } from 'vue'
-import * as api from './service'
+// import * as api from './service'
 
 
-const JsState = reactive({
-  form: {},
-  num: 1,
-  str: '2',
-  nul: null,
-  ss: undefined
-})
+function isdebounce(arg) {
+  message.success(`简单${arg}，平常项目用loadhash`)
+}
+
+let timer
+// 防抖
+function debounce(time, fun, arg) {
+  if (!timer) {
+    fun(arg)
+  }
+  timer = setTimeout(() => {
+    timer = null
+  }, time);
+}
+
+let throttletimer
+// 节流
+function throttle(time, fun, arg) {
+  if (!throttletimer) {
+    fun(arg)
+  }
+  throttletimer = setTimeout(() => {
+    throttletimer = null
+  }, time);
+
+}
+
+//手动实现promise
+//promise pending, fulfilled, rejected 三个状态
+
+// function _Promise(fn) {
+//   let stash = 'pending' //初始状态
+//   let value = null
+//   let reason = null
+//   let onFulfilled = []
+//   let onReject = []
+
+// }
+
+
 
 onMounted(() => {
-  function Fun() {
+  // (async () => {
+  //   for (let index = 0; index < 9; index++) {
+  //     await new Promise(function (resolve, rejected) {
+  //       console.log(index + 1);
+  //       setTimeout(resolve, 1000);
+  //     })
+  //   }
+  // })()
 
-  }
-  console.log(Fun.prototype);//默认指向一个Object空对象（没有我们的属性）
-
-  // // 原型对象中有一个属性constructor，它指向函数对象
-  console.log(Date.prototype.constructor === Date);
-  // console.log(Fun.prototype.constructor === Fun);
-
-  // // 给原型对象添加属性（一般是方法）--> 实例对象可以访问
-  // Fun.prototype.test = function () {
-  //   console.log('test()');
+  // for (let index = 0; index < 5; index++) {
+  //   setTimeout(() => {
+  //     console.log(index);
+  //   }, 1000);
   // }
+  for (let i = 0; i < 3; i++) {
+    setTimeout(function () {
+      console.log(i)
+    }, 1000)
+  };
 
-  // var fun = new Fun();
-  // fun.test();
+
 })
 
 </script>
 
 <style lang="less" scoped>
-.Js {}
 </style>

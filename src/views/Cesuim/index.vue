@@ -19,7 +19,7 @@ import { loadView, viewer, addRipple, addscan, addModleforLine } from "./hooks";
 import { setRain, setSnow, removeStage } from "./shader/setScence";
 import * as Cesium from "cesium";
 
-let scanProcessStages
+let scanProcessStages, rippleProcessStages
 let stages = {
   weather: false,
   effect: false,
@@ -34,6 +34,7 @@ function clean() {
   viewer.entities.removeAll()
   viewer.dataSources.removeAll()
   viewer.scene.postProcessStages.remove(scanProcessStages)
+  viewer.scene.postProcessStages.remove(rippleProcessStages)
 }
 
 function setviewerRain() {
@@ -82,7 +83,9 @@ function scan() {
     radius: 20,
     circleMode: 'CircleScan'
   };
-  scanProcessStages = addRipple(scanPoint)
+  if (!scanProcessStages) {
+    scanProcessStages = addRipple(scanPoint)
+  }
   viewer.flyTo(viewer.entities.getById('1') as Cesium.Entity)
 }
 
@@ -118,7 +121,9 @@ function ripple() {
     radius: 20,
     circleMode: 'CircleScan',
   };
-  scanProcessStages = addscan(ripplePoint)
+  if (!rippleProcessStages) {
+    rippleProcessStages = addscan(ripplePoint)
+  }
 }
 
 function showModel() {

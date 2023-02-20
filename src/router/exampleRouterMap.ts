@@ -22,18 +22,18 @@ export const example: Router = {
           component: () => import('@/views/dashboard/Index.vue'),
           meta: { title: 'menu.dashboard.analysis', keepAlive: false, permission: ['admin'], hidden: false }
         },
-        // 外部链接
-        // {
-        //   path: 'monitor',
-        //   name: 'Monitor',
-        //   meta: { title: 'menu.dashboard.monitor', target: 'http://www.baidu.com', permission: ['admin'], blank: true }
-        // },
         {
           path: 'cesuim',
           name: 'Cesuim',
           component: () => import('@/views/Cesuim/index.vue'),
           meta: { title: 'menu.dashboard.cesuim', keepAlive: true, permission: ['admin'] }
-        }
+        },
+        {
+          path: 'three',
+          name: 'three',
+          component: () => import('@/views/Three/index.vue'),
+          meta: { title: 'menu.dashboard.three', keepAlive: true, permission: ['admin'] }
+        },
       ]
     },
 

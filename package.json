@@ -33,6 +33,7 @@
     "moment": "^2.29.4",
     "nprogress": "^0.2.0",
     "save": "^2.9.0",
+    "three": "^0.149.0",
     "tinycolor2": "^1.4.2",
     "vite-plugin-optimize-persist": "^0.1.2",
     "vite-plugin-package-config": "^0.1.1",
