@@ -61,8 +61,6 @@ yarn build
 
 - 图标除了 Ant Design Vue 自带的图标以外还使用了 vite-plugin-svg-icons 插件缓存svg,所有图标都放在src/assets/icons中
 
--
-
 - 想使用antv自带的图标请拷贝node_modules\@ant-design\icons-svg\inline-svg到图标文件夹,会自动引入,名称为 文件夹名-文件名 例如a下的b.svg,SvgIcon组件传入name="a-b"即可: <SvgIcon name="a-b" color="#fff"/>
 
   想获取所有已添加的icon:
@@ -93,7 +91,7 @@ yarn build
       - 优点
 
       		1. 可以任意在生产环境下选择主题颜色;
-
+      		
       		2. 没有上一中法案的问题3,主题更改比较全面
 
       - 缺点:
@@ -134,15 +132,26 @@ yarn build
 
 ## 已完成
 1. 注册登录vue3 语法
+
 2. 自动生成国际化(多层级文件夹使用.连接,比如tools.UserMenu)
+
 3. Storage(包含加密)
+
 4. vueuse响应式判断设备(手机,平板,pc)
+
 5. 输入命令,生成一个view/component的模板
+
 6. 页面存在一个开发球,点击按钮就可以创建view/component(yarn dev没有开发球,dev-ui才有)
+
 7. 由于viser-vue不支持vue3,于是使用g2-plot重写,并且已支持夜间模式
-( 如果不需要该页面,除了删除dashboard文件夹,也不要忘记删除"@antv/g2plot","@vue/babel-plugin-jsx"这俩库)
+    ( 如果不需要该页面,除了删除dashboard文件夹,也不要忘记删除"@antv/g2plot","@vue/babel-plugin-jsx"这俩库)
+
 8. 仿win10锁屏页面,动态显示是否联网,是否充电,可自由更换壁纸(存在indexedDB中,建议图片别太大,容易卡),点击右下角锁头按钮出现密码框或换壁纸按钮
+
 9. 在views文件夹中可以创建 user.store.ts作为vuex的文件,其中文件名.store.ts之前的user将会作为模块名实现,具体实现请看genStore方法
+
+10. 引入了Cesuim 3d开发，并且新增示例
+
 ## TODO
 1. 使用reactiveState部分代替vuex
 2. 详尽的文档
